@@ -1,0 +1,233 @@
+:root {
+  --ink: #1b1f2a;
+  --paper: #f6f4ef;
+  --panel: #ede9e0;
+  --border: #d8d3c7;
+  --accent: #3f6b54;
+  --rust: #b5502f;
+  --text-muted: #5b5c62;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", "Inter", Helvetica, Arial, sans-serif;
+}
+
+.workspace {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  width: 260px;
+  flex: none;
+  background: var(--paper);
+  border-right: 1px solid var(--border);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-brand {
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.score-block {
+  text-align: center;
+  position: relative;
+}
+
+.score-ring {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.ring-track {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 8;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 327; /* 2 * pi * 52 */
+  stroke-dashoffset: 327;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.score-number {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.score-caption {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.keywords-block h3,
+.template-block h3 {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.chips.matched .chip {
+  background: rgba(63, 107, 84, 0.14);
+  color: var(--accent);
+}
+
+.chips.missing .chip {
+  background: rgba(181, 80, 47, 0.12);
+  color: var(--rust);
+}
+
+.template-switch {
+  display: flex;
+  gap: 6px;
+}
+
+.tmpl-btn {
+  flex: 1;
+  padding: 7px 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.tmpl-btn.is-active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.primary-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px 0;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn:hover { background: var(--accent); }
+
+.export-status {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  min-height: 14px;
+  text-align: center;
+}
+
+/* ---------- Canvas ---------- */
+
+.canvas-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 24px 60px;
+  overflow-y: auto;
+}
+
+.canvas-toolbar {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.page-shadow {
+  background: #fff;
+  width: 100%;
+  max-width: 720px;
+  box-shadow: 0 1px 2px rgba(27, 31, 42, 0.08), 0 12px 28px rgba(27, 31, 42, 0.12);
+  border-radius: 2px;
+}
+
+.resume {
+  padding: 48px 56px;
+  min-height: 900px;
+  outline: none;
+  line-height: 1.5;
+}
+
+.resume:focus { box-shadow: inset 0 0 0 2px rgba(63, 107, 84, 0.25); }
+
+.resume h1 { margin: 0 0 2px; font-size: 24px; }
+.resume .headline { margin: 0 0 14px; color: var(--text-muted); font-size: 13px; }
+.resume .contact { margin: 0 0 20px; font-size: 12px; color: var(--text-muted); }
+.resume h2 {
+  font-size: 12.5px;
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+  margin: 22px 0 10px;
+}
+.resume .entry { margin-bottom: 14px; }
+.resume .entry-title { font-weight: 700; font-size: 13.5px; }
+.resume .entry-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.resume ul { margin: 0; padding-left: 18px; font-size: 13px; }
+.resume li { margin-bottom: 3px; }
+
+/* Modern template: sans-serif, left accent rule on section headers */
+.resume.modern { font-family: inherit; }
+.resume.modern h1 { font-family: inherit; letter-spacing: -0.2px; }
+.resume.modern h2 {
+  border-bottom: none;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+  text-transform: none;
+}
+
+/* Classic template: serif, centered header, traditional single column */
+.resume.classic { font-family: Georgia, "Iowan Old Style", serif; }
+.resume.classic h1 { text-align: center; font-size: 22px; }
+.resume.classic .headline,
+.resume.classic .contact { text-align: center; }
+.resume.classic h2 {
+  text-align: left;
+  border-bottom: 1px solid var(--ink);
+}

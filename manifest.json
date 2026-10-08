@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "AutoATS Resume Tailor",
+  "version": "1.0.0",
+  "description": "Scrapes the job posting on your active tab and generates an ATS-optimized, tailored resume using Gemini AI and your GitHub projects.",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "https://api.github.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AutoATS Resume Tailor"
+  }
+}

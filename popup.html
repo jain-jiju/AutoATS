@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AutoATS Resume Tailor</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="brand">
+    <span class="brand-mark">AutoATS</span>
+    <span class="brand-sub">Resume Tailor</span>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn is-active" data-tab="run" role="tab">Run</button>
+    <button class="tab-btn" data-tab="setup" role="tab">Profile setup</button>
+  </nav>
+
+  <!-- RUN VIEW -->
+  <section id="tab-run" class="tab-panel is-active">
+    <p class="hint">
+      Open a job posting (LinkedIn, Greenhouse, Lever, Indeed) on the active
+      tab, then tailor a resume for it in one click.
+    </p>
+    <button id="tailorBtn" class="primary-btn">Tailor resume for this job</button>
+    <div id="status" class="status" aria-live="polite"></div>
+    <div id="noProfileWarning" class="warning hidden">
+      Add your API key, GitHub handle, and base profile in
+      <button class="link-btn" data-goto="setup">Profile setup</button> first.
+    </div>
+  </section>
+
+  <!-- SETUP VIEW -->
+  <section id="tab-setup" class="tab-panel">
+    <form id="setupForm">
+      <label class="field">
+        <span>Gemini API key</span>
+        <input type="password" id="apiKey" autocomplete="off" placeholder="AIza..." />
+      </label>
+
+      <label class="field">
+        <span>GitHub username</span>
+        <input type="text" id="githubUser" autocomplete="off" placeholder="octocat" />
+      </label>
+
+      <label class="field">
+        <span>Full name</span>
+        <input type="text" id="fullName" autocomplete="off" />
+      </label>
+
+      <label class="field">
+        <span>Email</span>
+        <input type="email" id="email" autocomplete="off" />
+      </label>
+
+      <label class="field">
+        <span>Phone</span>
+        <input type="tel" id="phone" autocomplete="off" />
+      </label>
+
+      <label class="field">
+        <span>Location</span>
+        <input type="text" id="location" placeholder="City, Country" />
+      </label>
+
+      <label class="field">
+        <span>Education</span>
+        <textarea id="education" rows="3" placeholder="One line per entry: degree, school, year"></textarea>
+      </label>
+
+      <label class="field">
+        <span>Work experience</span>
+        <textarea id="experience" rows="6" placeholder="Role @ Company (dates)&#10;- bullet&#10;- bullet"></textarea>
+      </label>
+
+      <label class="field">
+        <span>Core skills</span>
+        <textarea id="skills" rows="2" placeholder="Comma-separated: Python, React, SQL, AWS"></textarea>
+      </label>
+
+      <button type="submit" class="primary-btn">Save profile</button>
+      <div id="saveStatus" class="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

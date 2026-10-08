@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AutoATS — Resume Editor</title>
+  <link rel="stylesheet" href="editor.css" />
+</head>
+<body>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="sidebar-brand">AutoATS</div>
+
+      <section class="score-block">
+        <svg viewBox="0 0 120 120" class="score-ring" id="scoreRing">
+          <circle cx="60" cy="60" r="52" class="ring-track" />
+          <circle cx="60" cy="60" r="52" class="ring-fill" id="ringFill" />
+        </svg>
+        <div class="score-number" id="scoreNumber">—</div>
+        <div class="score-caption">ATS match for this role</div>
+      </section>
+
+      <section class="keywords-block">
+        <h3>Matched keywords</h3>
+        <div class="chips matched" id="matchedChips"></div>
+        <h3>Missing keywords</h3>
+        <div class="chips missing" id="missingChips"></div>
+      </section>
+
+      <section class="template-block">
+        <h3>Template</h3>
+        <div class="template-switch">
+          <button class="tmpl-btn is-active" data-template="modern">Modern</button>
+          <button class="tmpl-btn" data-template="classic">Classic</button>
+        </div>
+      </section>
+
+      <button id="exportBtn" class="primary-btn">Export PDF</button>
+      <div id="exportStatus" class="export-status"></div>
+    </aside>
+
+    <main class="canvas-wrap">
+      <div class="canvas-toolbar">
+        <span id="jobMeta">Loading…</span>
+      </div>
+      <div class="page-shadow">
+        <article id="resume" class="resume modern" contenteditable="true"></article>
+      </div>
+    </main>
+  </div>
+
+  <script src="../lib/html2pdf.bundle.js"></script>
+  <script type="module" src="editor.js"></script>
+</body>
+</html>

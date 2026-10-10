@@ -35,6 +35,9 @@ be able to export a PDF until it's in place.
 
 Get a Gemini API key at https://aistudio.google.com/apikey — it's free to
 create, though usage is billed per Google's API pricing.
+
+
+
 ![AutoATS editor](assets/2.png)
 ![AutoATS editor](assets/3.png)
 ## 4. Use it

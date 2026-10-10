@@ -35,7 +35,8 @@ be able to export a PDF until it's in place.
 
 Get a Gemini API key at https://aistudio.google.com/apikey — it's free to
 create, though usage is billed per Google's API pricing.
-
+![AutoATS editor](assets/2.png)
+![AutoATS editor](assets/3.png)
 ## 4. Use it
 
 1. Open a job posting on LinkedIn, Greenhouse, Lever, or Indeed.
@@ -43,7 +44,7 @@ create, though usage is billed per Google's API pricing.
 3. A new tab opens with your ATS score, matched/missing keywords, and an
    editable resume. Switch between Modern/Classic templates, edit inline,
    and export to PDF once `html2pdf.bundle.js` is in place.
-
+![AutoATS editor](assets/1.png)
 ## Notes on scope
 
 - Job scraping selectors are tuned for LinkedIn, Greenhouse, Lever, and
